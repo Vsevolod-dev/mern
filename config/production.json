@@ -1,0 +1,6 @@
+{
+  "port": 5000,
+  "jwtSecret": "kalistratova mern haha",
+  "mongoUri": "mongodb+srv://vsevolod:vsevolod123@cluster0.41ooz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "baseUrl": "http://localhost:5000"
+}
