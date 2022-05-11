@@ -11,12 +11,14 @@ router.post(
     [
       check('login', 'Incorrect login(email)').isEmail(),
       check('password', 'Minimal password length is 6 symbols').isLength({min: 6}),
-      // check('password').custom((value, { req }) => {
-      //     console.log(value)
-      //     if (req.body.password !== req.body.passwordConfirm) {
-      //         throw new Error('Password confirmation is incorrect');
-      //     }
-      // }),
+        check('password', 'Minimal password length is 6 symbols').isLength({min: 6}),
+      check('password-confirm').isLength({min: 6}).custom((value, { req }) => {
+          if (req.body.password !== value) {
+              throw new Error('Password confirmation is incorrect');
+          } else {
+              return true
+          }
+      }),
     ],
     async (req, res) => {
     try {
@@ -28,18 +30,13 @@ router.post(
                 message: 'Incorrect registration data'
             })
         }
-        
-        const {login, password, passwordConfirm} = req.body
 
+        const {login, password} = req.body
         const exist = await User.findOne({login})
 
         if (exist) {
             return res.status(400).json({message: 'This login is occupied by another user!'})
         }
-
-        // if (password !== passwordConfirm) {
-        //     return res.status(400).json({message: 'Passwords don\'t match!'})
-        // }
 
         const hashedPassword = await bcrypt.hash(password, 12)
 

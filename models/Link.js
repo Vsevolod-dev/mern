@@ -25,7 +25,8 @@ const schema = new Schema({
     },
     owner: {
         type: Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        index: true
     }
 })
 
