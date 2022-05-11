@@ -1,0 +1,147 @@
+(). Mongo
+	creating db
+	creating user
+	connect your application => uri
+
+1. initialization
+	npm init
+	entry point: main file
+	npm i express mongoose
+	npm i -D nodemon(dynamic restart server) concurrently(run backend and frontend)
+	"start": "node app.js" (run client)
+	"server": "nodemon app.js"
+
+2.app.js
+	get express via require
+	listening (port, cb)
+	npm i config(folder => default.json(production.json))
+	get mongoose 
+	mongoose returning promise => async function
+	mongoose.connect(uri)
+	run server after db connection
+	app.use('...')
+
+3. routes
+	create folder
+	create auth
+	get router from express
+	export from module
+	creating get/post routes(async)
+	npm i bcrypt
+	npm i express-validator
+	npm i jsonwebtoken
+
+4. Schemas (mongodb)
+	get Schema and model
+	creating schema
+	export module
+	import module to routes
+	res.status(400).json({message: qwe})
+
+5. Client
+    npx create-react-app client
+    rm -rf git node_modules
+    npm i
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+    import meterialize
+    react-router-dom
+
+    create pages folder, create pages
+    create client routes (authenticated)
+    import routes
+
+    create auth page
+    create/update state form
+
+    create hooks folder
+    create http hook (don't forget about useCallback)
+
+    import useHttp
+
+6. proxy
+
+7. Middleware
+    json middleware
+
+8. Message hook: toast
+
+9. Clear error => useCallback
+
+10. Creat auth hook
+    login
+    logout
+    token
+    userId
+
+11. Context
+    create context folder
+    import AuthContext to App.js
+
+12. Navbar
+    create components folder
+    create navbar
+    auth dependencies
+
+13. Navigate (Redirect)
+
+14. UpdateTextFields
+
+15. Link routes
+    generate
+    links
+    link/:id
+    import route to backend
+    import baseUrl from config to link routes
+    npm i shortid
+    add auth to routes
+
+16. Link model
+
+17. Middleware
+    create middleware folder
+    create auth middleware
+    jwt verify token
+    !!ready
+    create Loader component
+
+18. Pages
+    create createPage
+    add auth token in headers
+
+    create detailPage
+    create LinkCard
+
+    create linksPage
+
+19. redirectRoutes
+    create redirectRoutes
+    add route to app.js
+
+20. Scripts
+    "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
+    npm i cross-env
+    add env to scripts
+
+21. GIT
+    add .gitignore
+    .idea
+    node_modules
+
+    create repository
+    and etc...
+
+22. Static
+    gives static via run server command
+
+23. Prod
+    domain
+    hosting
+    create server
+    add domain to server
+    ssh connection
+    add ip to db
+
+    add pm2 -g
+    pm2 start  npm --start
+    pm2 stop 0
